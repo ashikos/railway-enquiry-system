@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Employee Registeration Form</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png'%}">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <script>
+        n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        </script>
+  
+</head>
+
+
+<body>
+
+    
+   
+   
+    <div id="main-wrapper">
+
+    
+
+            
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <!--div class="card">
+                            <div class="card-body">
+                                <h3>TRAIN DETAILS</h3><br>
+                                <div class="form-validation">
+                                    
+                                         
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Train NO:<span class="text-danger" >*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  readonly placeholder="{{ i.train_no }}" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Route<span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-3">
+                                                <input type="text" class="form-control" readonly placeholder="{{ i.d_place}}"  >
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <input type="text" class="form-control" readonly placeholder="{{ i.a_place}}"  >
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Departure Time <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  readonly placeholder="{{i.d_time}}" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Arrival Time <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  readonly placeholder="{{i.a_time}}" >
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                        
+                                    </div>
+                                        
+                                               
+                                    </div>
+                                </div>
+                            </div-->
+                <div class="container-fluid " style="margin-top: 150px;">
+                    <div class="container-fluid ">
+                    
+                            <div class="row justify-content-center">
+                            <div class="col-lg-12">
+                            <div class="card" >
+                            <div class="card-body " style="padding: 30px;">
+                            <h4>Billing Details</h4>
+                                <section>
+                                    <form method="POST" action="billing">
+                                        {% csrf_token %}
+                                    <div class="form-validation">
+                                        <input  type="text"  class="form-control" readonly hidden   name="train_no"  value="{{ d.x }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="uname"  value="{{ d.a }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="c_from"  value="{{ d.y }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="c_to"  value="{{ d.z }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="firstName"  value="{{ d.l }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="lastName"  value="{{ d.m }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="contact_no"  value="{{ d.n }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="date"  value="{{ d.o }}" >
+                                        <input  type="number"  class="form-control" readonly hidden  name="passenger"  value="{{ d.pa }}" >
+                                        <input  type="text"  class="form-control" readonly hidden  name="email"  value="{{ d.q }}" >
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label">Payment<span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="number" value="{{d.p}}" class="form-control" name="payement"  placeholder="account number.." >
+                                            </div>
+                                        </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Account Number<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" name="ac_no"  placeholder="account number.." >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Expiry date<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="date" class="form-control" name="ex_date" placeholder="dd/mm/yy.." >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Cvv<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control" name="cvv"  placeholder="cvv.." >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Account Holder Name<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control" name="holder"  placeholder="account holder.." >
+                                                </div>
+                                            </div>
+                                            <div style="margin-left: 793px;">
+                                            <input type="submit" value="Confirm Booking" class="btn btn-info">
+                                            </div>
+                                            
+                                    </div>
+                                </form>
+                                </section>
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            
+                                            
+                        
+                           
+                                
+                            
+                            
+                            </div>
+                        </form>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <!--div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+            </div>
+        </div-->
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <script src="{% static 'plugins/common/common.min.js'%}"></script>
+    <script src="{% static 'js/custom.min.js'%}"></script>
+    <script src="{%  static 'js/settings.js'%}"></script>
+    <script src="{% static 'js/gleek.js'%}"></script>
+    <script src="{% static 'js/styleSwitcher.js'%}"></script>
+
+
+    <script src="{% static './plugins/jquery-steps/build/jquery.steps.min.js'%}"></script>
+    <script src="{% static './plugins/jquery-validation/jquery.validate.min.js'%}"></script>
+    <script src="{% static './js/plugins-init/jquery-steps-init.js'%}"></script>
+
+</body>
+
+</html>

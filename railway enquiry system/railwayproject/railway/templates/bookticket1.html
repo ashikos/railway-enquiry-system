@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Employee Registeration Form</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon.png'%}">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <script>
+        n =  new Date();
+y = n.getFullYear();
+m = n.getMonth() + 1;
+d = n.getDate();
+document.getElementById("date").innerHTML = m + "/" + d + "/" + y;
+        </script>
+  
+</head>
+
+
+<body>
+
+    <nav class="navbar navbar-expand-lg-mb-5  " style="background-color: rgb(9, 37, 61);" >
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col"><label for="" class="mr-3">From  </label><button style="width: 287px ;height: 50px;font-weight: bolder; font-size: large; background-color: rgb(232, 234, 238);" class="btn  ">{{ i.d_place}}</button></th>
+                <th scope="col"><label for=""class="mr-3">To</label><button class="btn "style="width: 287px;height: 50px;font-weight: bolder; font-size: large;rgb(232, 234, 238);">{{ i.a_place}}</button></th>
+                <th scope="col"><label for=""class="mr-3">Date</label><button class="btn "style="width: 287px;height: 50px;font-weight: bolder; font-size: large;rgb(232, 234, 238);"><p>
+                    <script> document.write(new Date().toLocaleDateString()); </script>
+                    </p></button></th>
+              </tr>
+            </thead>
+            
+          </table>
+        
+      </nav>
+     
+   
+   
+    <div id="main-wrapper">
+
+    
+
+            
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <!--div class="card">
+                            <div class="card-body">
+                                <h3>TRAIN DETAILS</h3><br>
+                                <div class="form-validation">
+                                    
+                                         
+                                        
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Train NO:<span class="text-danger" >*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  readonly placeholder="{{ i.train_no }}" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Route<span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-3">
+                                                <input type="text" class="form-control" readonly placeholder="{{ i.d_place}}"  >
+                                            </div>
+                                            <div class="col-lg-3">
+                                                <input type="text" class="form-control" readonly placeholder="{{ i.a_place}}"  >
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Departure Time <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  readonly placeholder="{{i.d_time}}" >
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" >Arrival Time <span class="text-danger">*</span>
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control"  readonly placeholder="{{i.a_time}}" >
+                                            </div>
+                                        </div>
+                                       
+                                        
+                                        
+                                    </div>
+                                        
+                                               
+                                    </div>
+                                </div>
+                            </div-->
+                <div class="container-fluid mt-5">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h3>TRAIN DETAILS</h3><br>
+                                    <div class="form-validation">
+                                        <form class="form-valid"  method="POST" >
+                                            {% csrf_token %}
+                                            <input  type="text"  class="form-control"  hidden name="uname" value="{{ i.a }}" >
+                                            <input  type="text"  class="form-control" hidden  name="train_no" value="{{ i.i }}" >
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">First Name<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"  name="firstName" placeholder="first name.." >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Last Name<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="text" class="form-control"  name="lastName" placeholder="last name.." >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label">Email<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="email" class="form-control"  name="email" placeholder="email.." >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" >Contact Number<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"  name="contact_no" placeholder="contact no:" >
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" >Date<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="date" class="form-control"  name="date"   >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" >Passenger<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-lg-6">
+                                                    <input type="number" class="form-control"  name="passenger"   >
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-lg-4 col-form-label" >Travel<span class="text-danger">*</span>
+                                                </label>
+                                                <div class="col-3">
+                                                   
+                                                    <select class="form-control"  name="c_from">
+                                                        
+                                                        <option value="aluva">Aluva</option>
+                                                        <option value="pulinchodu">Pulinchodu</option>
+                                                        <option value="companypady">Companypady</option>
+                                                        <option value="ambattukavu">Ambattukavu</option>
+                                                        <option value="muttom">Muttom</option>
+                                                        <option value="kalamassery">Kalamassery</option>
+                                                        <option value="cochin_university">Cochin University</option>
+                                                        <option value="pathadipalam">Pathadipalam</option>
+                                                        <option value="edapally">Edapally</option>
+                                                        <option value="changampuzha_park">Changampuzha park</option>
+                                                        <option value="palarivattom">Palarivattom</option>
+                                                        <option value="jln stadium">JLN Stadium</option>
+                                                        <option value="kaloor">Kaloor</option>
+                                                        <option value="town_hall">Town hall</option>
+                                                        <option value="mg_road">MG Road</option>
+                                                        <option value="maharajas_college">Maharajas College</option>
+                                                        <option value="ekm_south">Ernakulam South</option>
+                                                        <option value="kadavanthara">Kadavanthara</option>
+                                                        <option value="elamkulam">Elamkulam</option>
+                                                        <option value="vytilla">Vytilla</option>
+                                                        <option value="thykoodam">Thykoodam</option>
+                                                        <option value="petta">Petta</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col-3">
+                                                    <select class="form-control"  name="c_to">
+                                                        
+                                                        <option value="aluva">Aluva</option>
+                                                        <option value="pulinchodu">Pulinchodu</option>
+                                                        <option value="companypady">Companypady</option>
+                                                        <option value="ambattukavu">Ambattukavu</option>
+                                                        <option value="muttom">Muttom</option>
+                                                        <option value="kalamassery">Kalamassery</option>
+                                                        <option value="cochin_university">Cochin University</option>
+                                                        <option value="pathadipalam">Pathadipalam</option>
+                                                        <option value="edapally">Edapally</option>
+                                                        <option value="changampuzha_park">Changampuzha park</option>
+                                                        <option value="palarivattom">Palarivattom</option>
+                                                        <option value="jln stadium">JLN Stadium</option>
+                                                        <option value="kaloor">Kaloor</option>
+                                                        <option value="town_hall">Town hall</option>
+                                                        <option value="mg_road">MG Road</option>
+                                                        <option value="maharajas_college">Maharajas College</option>
+                                                        <option value="ekm_south">Ernakulam South</option>
+                                                        <option value="kadavanthara">Kadavanthara</option>
+                                                        <option value="elamkulam">Elamkulam</option>
+                                                        <option value="vytilla">Vytilla</option>
+                                                        <option value="thykoodam">Thykoodam</option>
+                                                        <option value="petta">Petta</option>
+                                                    </select>
+                                                    
+                                                
+                                                    
+                                                </div>
+                                                
+                                                
+                                                
+                                                
+                                            </div>
+                                            <div  style="margin-left: 793px;">
+                                                <input type="submit" value="Submit" class="btn btn-info">
+                                            </div>
+                                          
+                                        </div>
+                                            
+                                                   
+                                        </div>
+                                    </div>
+                            </div>
+                            
+                            
+                                            
+                        
+                           
+                                
+                            
+                            
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <!--div class="footer">
+            <div class="copyright">
+                <p>Copyright &copy; Designed & Developed by <a href="https://themeforest.net/user/quixlab">Quixlab</a> 2018</p>
+            </div>
+        </div-->
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <script src="{% static 'plugins/common/common.min.js'%}"></script>
+    <script src="{% static 'js/custom.min.js'%}"></script>
+    <script src="{%  static 'js/settings.js'%}"></script>
+    <script src="{% static 'js/gleek.js'%}"></script>
+    <script src="{% static 'js/pay.js'%}"></script>
+    <script src="{% static 'js/styleSwitcher.js'%}"></script>
+
+
+    <script src="{% static './plugins/jquery-steps/build/jquery.steps.min.js'%}"></script>
+    <script src="{% static './plugins/jquery-validation/jquery.validate.min.js'%}"></script>
+    <script src="{% static './js/plugins-init/jquery-steps-init.js'%}"></script>
+
+</body>
+
+</html>

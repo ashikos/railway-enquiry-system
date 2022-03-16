@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>User SIGNUP</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/tlogo14.png' %}">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'css/login.css'%}" rel="stylesheet">
+    
+    <style>
+      .background {
+        /*..https://static.vecteezy.com/system/resources/previews/005/130/384/non_2x/abstract-blurred-subway-station-background-city-life-and-public-transportation-concept-free-photo.jpg..*/
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSySA6FehiHQ3ZuI3OIgISLGOhp8gQhBwSVEgO37wln_qGNAGV5oPXyFgcET-vR8tADeI&usqp=CAU'); background-repeat: no-repeat; background-size: cover; background-position: center center; height:690px;
+        height: 745px;
+        padding: 149px;
+      }
+      
+     .card {
+        margin-right: auto;
+        margin-left: auto;
+        
+        width: 580px;
+        
+        height: 460px;
+        border-radius: 8px;
+        backdrop-filter: blur(13px);
+        background-color: rgba(166, 166, 168, 0.2);
+        padding: 27px;
+        text-align: center;
+      }
+      
+     .card img {
+        height: 60%;
+      }
+     .alt-view-link{
+      text-align: right;
+      color: rgba(0,0,0,.38);
+      font-weight: 200;
+      font-size: 10px;
+     }
+
+    </style>
+       
+           
+</head>
+<body>
+
+<!--<div class="content-body">
+<div class="view" style="background-image: url('https://static.vecteezy.com/system/resources/previews/005/130/384/non_2x/abstract-blurred-subway-station-background-city-life-and-public-transportation-concept-free-photo.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; height:690px;">
+<div class="col-lg-6" style="padding: 175px;" >-->
+  <div class="background">
+  <div class="card .alt-view-link">
+    <p>Already have an account <a href="{% url 'adminuser_login' %}">SIGN-IN</a></p>
+  <!--<img src="https://static.vecteezy.com/system/resources/previews/005/130/384/non_2x/abstract-blurred-subway-station-background-city-life-and-public-transportation-concept-free-photo.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center; height:690px;"/>-->
+    <form method="POST">
+      
+      {% csrf_token %}
+      <!-- 2 column grid layout with text inputs for the first and last names -->
+      <div class="col">
+        <div class="form-outline">
+          <input type="text"  class="form-control" name="username" style="background-image: url('data:image/png;base64');
+          background-repeat: no-repeat;
+          
+          background-size: 16px 18px;
+          background-position: 98% 50%;" />
+          <label class="form-label" for="form3Example2" style="margin-left: 0px">User name</label>
+          <div class="form-notch">
+            <div class="form-notch-leading" style="width: 9px"></div>
+            <div class="form-notch-middle" style="width: 68.8px"></div>
+            <div class="form-notch-trailing"></div>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row mb-4">
+        <div class="col">
+          <div class="form-outline">
+            <!--<input type="text"  name="username" class="form-control" autocomplete="off" style="background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAASCAYAAABSO15qAAAAAXNSR0IArs4c6QAAAUBJREFUOBGVVE2ORUAQLvIS4gwzEysHkHgnkMiEc4zEJXCMNwtWTmDh3UGcYoaFhZUFCzFVnu4wIaiE+vvq6+6qTgthGH6O4/jA7x1OiCAIPwj7CoLgSXDxSjEVzAt9k01CBKdWfsFf/2WNuEwc2YqigKZpK9glAlVVwTTNbQJZlnlCkiTAZnF/mePB2biRdhwHdF2HJEmgaRrwPA+qqoI4jle5/8XkXzrCFoHg+/5ICdpm13UTho7Q9/0WnsfwiL/ouHwHrJgQR8WEwVG+oXpMPaDAkdzvd7AsC8qyhCiKJjiRnCKwbRsMw9hcQ5zv9maSBeu6hjRNYRgGFuKaCNwjkjzPoSiK1d1gDDecQobOBwswzabD/D3Np7AHOIrvNpHmPI+Kc2RZBm3bcp8wuwSIot7QQ0PznoR6wYSK0Xb/AGVLcWwc7Ng3AAAAAElFTkSuQmCC');
+                background-repeat: no-repeat;
+                background-attachment: scroll;
+                background-size: 16px 18px;
+                background-position: 98% 50%;"/>
+            <label class="form-label"  for="form3Example1"  style="margin-left: 0px">User name</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px"></div>
+              <div class="form-notch-middle" style="width: 68.8px"></div>
+              <div class="form-notch-trailing"></div>
+            </div>-->
+            <input type="text" name="fname" class="form-control"  style="background-image: url('data:image/png;base64');
+            background-repeat: no-repeat;
+            
+            background-size: 16px 18px;
+            background-position: 98% 50%;"/>
+            <label class="form-label"  for="form3Example1"  style="margin-left: 0px">First name</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px"></div>
+              <div class="form-notch-middle" style="width: 68.8px"></div>
+              <div class="form-notch-trailing"></div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="form-outline">
+            <input type="text"  class="form-control" name="lname" style="background-image: url('data:image/png;base64');
+            background-repeat: no-repeat;
+            
+            background-size: 16px 18px;
+            background-position: 98% 50%;" />
+            <label class="form-label" for="form3Example2" style="margin-left: 0px">Last name</label>
+            <div class="form-notch">
+              <div class="form-notch-leading" style="width: 9px"></div>
+              <div class="form-notch-middle" style="width: 68px"></div>
+              <div class="form-notch-trailing"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Email input -->
+      <div class="form-outline mb-4">
+        <input type="email"  name="email" class="form-control" style="background-image: url('data:image/png;base64');
+        background-repeat: no-repeat;
+        
+        background-size: 16px 18px;
+        background-position: 98% 50%;" />
+        <label class="form-label" for="form3Example3" style="margin-left: 0px">Email address</label>
+        <div class="form-notch">
+          <div class="form-notch-leading" style="width: 9px"></div>
+          <div class="form-notch-middle" style="width: 88.8px"></div>
+          <div class="form-notch-trailing"></div>
+        </div>
+      </div>
+
+      <!-- Password input -->
+      <div class="form-outline mb-4">
+        <input type="password"  name="password1" class="form-control" style="background-image: url('data:image/png;base64');
+        background-repeat: no-repeat;
+        
+        background-size: 16px 18px;
+        background-position: 98% 50%;" />
+        <label class="form-label" for="form3Example4" style="margin-left: 0px">Password</label>
+        <div class="form-notch">
+          <div class="form-notch-leading" style="width: 9px"></div>
+          <div class="form-notch-middle" style="width: 64px"></div>
+          <div class="form-notch-trailing"></div>
+        </div>
+      </div>
+      <div class="form-outline mb-4">
+        <input type="password"  name="password2" class="form-control" style="background-image: url('data:image/png;base64');
+            background-repeat: no-repeat;
+            
+            background-size: 16px 18px;
+            background-position: 98% 50%;"/>
+        <label class="form-label" for="form3Example4" style="margin-left: 0px">Re-Enter Password</label>
+        <div class="form-notch">
+          <div class="form-notch-leading" style="width: 9px"></div>
+          <div class="form-notch-middle" style="width: 115px"></div>
+          <div class="form-notch-trailing"></div>
+        </div>
+      </div>
+
+      <!-- Checkbox -->
+      
+
+      <!-- Submit button -->
+      <button type="submit" class="btn btn-primary btn-block mb-4" style="width: 120px;">Sign up</button>
+
+      <!-- Register buttons -->
+      
+    </form>
+</div>
+</div>
+
+
+</body>

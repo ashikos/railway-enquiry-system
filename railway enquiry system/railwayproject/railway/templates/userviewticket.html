@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>My Ticket</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/tlogo14.png'%}">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css' %}" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        .bg {
+          /*..https://static.vecteezy.com/system/resources/previews/005/130/384/non_2x/abstract-blurred-subway-station-background-city-life-and-public-transportation-concept-free-photo.jpg..*/
+          background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSySA6FehiHQ3ZuI3OIgISLGOhp8gQhBwSVEgO37wln_qGNAGV5oPXyFgcET-vR8tADeI&usqp=CAU'); background-repeat: no-repeat; background-size: cover; background-position: center center; height:690px;
+          height: 800px;
+          width: 1900px;
+          letter-spacing: 1px;
+           }
+           .btn{
+               color: rgb(15, 15, 15);
+           }
+    </style>
+
+</head>
+
+<body>
+<div class="bg">
+    
+    <div class="row" style="justify-content: center; padding-top :100px " >
+        {% for i in view %}
+        <div class="col-ml-4 col-lg-3" style="padding-right: 30px" >
+            <div class="card ml-3"  >
+                <div class="card-header ">
+                    <h5 class="card-title">TRAIN NO: {{ i.train_no}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Route {{ i.c_from}} - {{ i.c_to}}</h6>
+                </div>
+                <img  src="{% static 'images/t1.png'%}">
+                <div class="card-body">
+                    <div class="text-center">
+                        <h5 class="mt-3 mb-1">Date:{{ i.date}}</h5>
+                        <h5 class="mt-3 mb-1"> First name:{{ i.firstName}}</h5>
+                        <h5 class="mt-3 mb-1"> Last name:{{ i.lastName}}</h5>
+                        <h5 class="mt-3 mb-1">Number of passengers: {{ i.passenger}}</h5>
+                        <h5 class="mt-3 mb-1">Fair {{ i.payement}}</h5><br>
+                        
+                        
+                        <a href="{% url 'cancel' i.pk%}"><button class="btn btn-danger" style="font-size: larger;" >CANCEL TICKET </a></button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+            
+       
+    <script src="{% static 'plugins/common/common.min.js'%}"></script>
+    <script src="{% static 'js/custom.min.js'%}"></script>
+    <script src="{% static 'js/settings.js'%}"></script>
+    <script src="{% static 'js/gleek.js'%}"></script>
+    <script src="{% static 'js/styleSwitcher.js'%}"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
+
+        <!--<div class="row">
+            {% for i in view %}
+            <div class="col-ml-4 col-lg-3">
+                <div class="card">
+                    <div class="card-header bg-white">
+                        <h5 class="card-title">TRAIN NO: {{ i.train_no}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">Route {{ i.c_from}} - {{ i.c_to}}</h6>
+                    </div>
+                    <img  src="{% static 'images/t1.png'%}" alt="">
+                    <div class="card-body">
+                        <div class="text-center">
+                            <h5 class="mt-3 mb-1">Date:{{ i.date}}</h5>
+                            <h5 class="mt-3 mb-1"> First name:{{ i.firstName}}</h5>
+                            <h5 class="mt-3 mb-1"> Last name:{{ i.lastName}}</h5>
+                            <h5 class="mt-3 mb-1">Number of passengers: {{ i.passenger}}</h5>
+                            <h5 class="mt-3 mb-1">Contact number:{{ i.contact_no}}</h5>
+                            
+                            
+                            <a href="{% url 'book' i.pk%}"><button class="btn btn-primary" style="font-size: larger;" >CANCEL TICKET </a></button>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>-->
+
+    
+
+
+
